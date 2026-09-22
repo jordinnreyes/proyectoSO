@@ -3,6 +3,7 @@
 Este proyecto está basado en el paper **“Analyzing the Overload Behavior of a Simple Web Server”** de N. Provos, C. Lever y S. Tweedie.
 
 El artículo estudia cómo un servidor web basado en señales POSIX Real-Time maneja eventos de entrada/salida y qué ocurre cuando la carga aumenta. En particular, compara `sigwaitinfo()`, que obtiene una señal por llamada, con `sigtimedwait4()`, que permite recuperar varias señales pendientes en una sola llamada.
+La simulación se enfoca en el nuevo uso de `sigtimedwait4()` propuesto en el paper: utilizar la cantidad de señales recuperadas para detectar situaciones de sobrecarga y controlar la aceptación de nuevas conexiones.
 
 ## Simulación
 
@@ -21,3 +22,18 @@ Finalmente, se comparan dos escenarios:
 
 - servidor sin control de overload;
 - servidor con control de overload.
+
+
+
+## Ejecución
+
+Compilar:
+
+```bash
+gcc simulation.c -o simulation
+```
+ejecutar:
+
+```bash
+./simulation
+```
